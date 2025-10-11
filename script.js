@@ -32,32 +32,32 @@ document.addEventListener('DOMContentLoaded', function() {
     cargarDatosInvitado();
 });
 
-// Función para obtener datos de invitados (sin inputs)
-function cargarDatosInvitado() {
-    const params = new URLSearchParams(window.location.search);
-    const invitadoId = params.get('id');
-
-    if (!invitadoId) {
-        alert('ID de invitado no encontrado en el enlace.');
-        return;
-    }
-
-    // Base de datos simulada
-    const invitados = {
-        '1': { nombre: 'Ana Pérez', pases: 3 },
-        '2': { nombre: 'Luis García', pases: 2 },
-        '3': { nombre: 'María López', pases: 4 }
-    };
-
-    const invitado = invitados[invitadoId];
-
-    if (invitado) {
-        document.getElementById('nombreInvitado').innerText = invitado.nombre;
-        document.getElementById('cantidadPases').innerText = `Pases: ${invitado.pases}`;
-    } else {
-        alert('Invitado no encontrado.');
-    }
-}
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+    cargarDatosInvitado();  // Llamamos la función cuando el DOM está listo
+  });
+  
+  // Función para obtener datos de invitados (sin inputs)
+  function cargarDatosInvitado() {
+      const params = new URLSearchParams(window.location.search);
+      const invitadoId = params.get('id');  // Obtener el ID del invitado desde la URL
+  
+      if (!invitadoId) {
+          alert('ID de invitado no encontrado en el enlace.');
+          return;
+      }
+  
+      const invitado = window.invitados[invitadoId];  // Acceder a los datos del invitado en window.invitados
+  
+      if (invitado) {
+          // Actualizar el contenido en el HTML con los datos del invitado
+          document.getElementById('nombreInvitado').innerText = invitado.nombre;
+          document.getElementById('cantidadPases').innerText = `Pases: ${invitado.pases}`;
+      } else {
+          alert('Invitado no encontrado.');
+      }
+  }
+  
 
 // Función para iniciar el contador de la fecha del evento
 function iniciarContador() {
