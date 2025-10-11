@@ -41,12 +41,23 @@ body {
     bottom: 0;
     border-top: none;
 }
-#envelope-top, #envelope-bottom {
+#envelope-top{
     position: absolute;
     width: 100%;
     height: 50%;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    background-image: url(/imagenes/sobre.png);
+    background-image: url(/imagenes/sobre-arriba.png);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#envelope-bottom {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    background-image: url(/imagenes/sobre-abajo.png);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
     background-size: cover;
     background-position: center;
@@ -60,7 +71,7 @@ body {
     transform: translate(-50%, -50%);
     width: 140px;
     height: 140px;
-    background: var(--color-1);
+    background: #ac9c49;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
     border-radius: 50%;
     display: flex;
