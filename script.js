@@ -33,9 +33,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // script.js
-document.addEventListener('DOMContentLoaded', function() {
-    cargarDatosInvitado();  // Llamamos la función cuando el DOM está listo
-  });
+function cargarDatosInvitado() {
+    const params = new URLSearchParams(window.location.search);
+    const invitadoId = params.get('id');
+
+    if (!invitadoId) {
+        alert('ID de invitado no encontrado en el enlace.');
+        return;
+    }
+
+    const invitado = window.invitados[invitadoId];
+
+    if (invitado) {
+        document.getElementById('nombreInvitado').innerText = invitado.nombre;
+        document.getElementById('cantidadPases').innerText = `${invitado.adultos} adultos y ${invitado.ninos} niños`;
+    } else {
+        alert('Invitado no encontrado.');
+    }
+}
   
   // Función para obtener datos de invitados (sin inputs)
   function cargarDatosInvitado() {
