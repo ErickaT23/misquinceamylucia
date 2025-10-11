@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
     cargarDatosInvitado();
 });
 
-// script.js
 function cargarDatosInvitado() {
     const params = new URLSearchParams(window.location.search);
     const invitadoId = params.get('id');  // Obtener el ID del invitado desde la URL
@@ -47,34 +46,18 @@ function cargarDatosInvitado() {
     if (invitado) {
         // Actualizar el contenido en el HTML con los datos del invitado
         document.getElementById('nombreInvitado').innerText = invitado.nombre;
-        document.getElementById('cantidadPases').innerText = `${invitado.adultos} adultos y ${invitado.ninos} niños`;
+
+        // Mostrar solo adultos y niños si hay niños, sino solo adultos
+        if (invitado.ninos > 0) {
+            document.getElementById('cantidadPases').innerText = `${invitado.adultos} adultos y ${invitado.ninos} niños`;
+        } else {
+            document.getElementById('cantidadPases').innerText = `${invitado.adultos} adultos`;
+        }
     } else {
         alert('Invitado no encontrado.');
     }
 }
 
-  
-  // Función para obtener datos de invitados (sin inputs)
-// Función para obtener datos de invitados (con adultos y niños)
-function cargarDatosInvitado() {
-    const params = new URLSearchParams(window.location.search);
-    const invitadoId = params.get('id');  // Obtener el ID del invitado desde la URL
-
-    if (!invitadoId) {
-        alert('ID de invitado no encontrado en el enlace.');
-        return;
-    }
-
-    const invitado = window.invitados[invitadoId];  // Acceder a los datos del invitado en window.invitados
-
-    if (invitado) {
-        // Actualizar el contenido en el HTML con los datos del invitado
-        document.getElementById('nombreInvitado').innerText = invitado.nombre;
-        document.getElementById('cantidadPases').innerText = `${invitado.adultos} adultos y ${invitado.ninos} niños`;
-    } else {
-        alert('Invitado no encontrado.');
-    }
-}
 
   
 
@@ -147,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 //Funcion para confirmar la asistencia 
-// Función para confirmar la asistencia con WhatsApp
 function confirmarAsistencia() {
     const params = new URLSearchParams(window.location.search);
     const invitadoId = params.get('id');  // Obtener el ID del invitado desde la URL
@@ -158,7 +140,15 @@ function confirmarAsistencia() {
     }
 
     const invitado = window.invitados[invitadoId];  // Obtener los datos del invitado
-    const mensaje = `Hola, soy ${invitado.nombre} y confirmo mi asistencia con ${invitado.adultos} adultos y ${invitado.ninos} niños para la fiesta de quince años de Amy Lucía.`;
+    let mensaje = `Hola, soy ${invitado.nombre} y confirmo mi asistencia con ${invitado.adultos} adultos`;
+
+    // Solo agregar niños si la cantidad de niños es mayor que 0
+    if (invitado.ninos > 0) {
+        mensaje += ` y ${invitado.ninos} niños`;
+    }
+
+    mensaje += ` para la fiesta de quince años de Amy Lucía.`;
+
     const numeroTelefono = '50255654205';  // Número de WhatsApp al cual se enviará el mensaje
 
     // Crear el enlace de WhatsApp
@@ -167,6 +157,7 @@ function confirmarAsistencia() {
     // Abrir el enlace de WhatsApp en una nueva ventana
     window.open(enlaceWhatsapp, '_blank');
 }
+
 
 
 //Funcion para abrir waze o maps
