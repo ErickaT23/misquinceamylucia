@@ -158,7 +158,7 @@ function confirmarAsistencia() {
     }
 
     const invitado = window.invitados[invitadoId];  // Obtener los datos del invitado
-    const mensaje = `Hola, soy ${invitado.nombre} y confirmo mi asistencia con ${invitado.pases} pases para la fiesta de quince años de Amy Lucía.`;
+    const mensaje = `Hola, soy ${invitado.nombre} y confirmo mi asistencia con ${invitado.adultos} adultos y ${invitado.ninos} niños para la fiesta de quince años de Amy Lucía.`;
     const numeroTelefono = '50255654205';  // Número de WhatsApp al cual se enviará el mensaje
 
     // Crear el enlace de WhatsApp
@@ -167,6 +167,7 @@ function confirmarAsistencia() {
     // Abrir el enlace de WhatsApp en una nueva ventana
     window.open(enlaceWhatsapp, '_blank');
 }
+
 
 //Funcion para abrir waze o maps
 //iglesia
