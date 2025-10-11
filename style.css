@@ -1,0 +1,811 @@
+:root {
+    --color-1: #66bfa7;
+    --color-2:#FFFFFF;
+    --color-3:#66bfa7;
+    --color-4:#B2D6BB;
+    --font-title: "Dancing Script", serif;
+    --font-text:"Lato", serif;
+    --scroll-animation-duration: 0.5s;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    background-color: white;
+}
+#envelope {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    perspective: 1000px;
+    z-index: 10;
+}
+#envelope:hover {
+    transform: scale(1.05);
+}
+/* Parte superior del sobre (solapa) */
+#envelope-top {
+    top: 0;
+    border-bottom: none;
+}
+/* Parte inferior del sobre (cuerpo) */
+#envelope-bottom {
+    bottom: 0;
+    border-top: none;
+}
+#envelope-top, #envelope-bottom {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    background-image: url(/imagenes/sobre.png);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* Sello del sobre */
+#seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    background: var(--color-1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 1s ease-in-out;
+    z-index: 11;
+}
+#seal h2 {
+    margin: 0;
+    font-size: 26px;
+    color: var(--color-2);
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-style: italic;
+}
+#invitacion {
+    display: none;
+    background: transparent;
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+}
+/*Color lila degrade*/
+.overlay-text h1, .overlay-text h2, .overlay-text h3, .section-countdown h1, .section-countdown p, .section-music h2, .countdown-circle span, .section-b p, .section h1, .section h2, .section-playlist h2, .section-gifts h2, .section h3, .section-filter h2, .section span, .section p, .section-gifts p, .section-filter p, .section-playlist p, .section-quote h1, .section-no-kids h2, .section-no-kids p, .section-buenos-deseos h2{
+    background: linear-gradient(to right, #4ed9ae, #66bfa7, #80c27e, #66bfa7, #4ed9ae);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: var(--font-title);
+}
+/*section overlay-text*/
+.overlay-text h1{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 50px;
+    white-space: nowrap;
+    margin-top: 100px;
+    padding: 5px;
+}
+.overlay-text h2 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 60px;
+    white-space: nowrap;
+    margin-top: 30px;
+}
+.overlay-text h3 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 55px;
+    white-space: nowrap;
+    margin-top: 200px;
+}
+/*sections generals*/
+.section , .section-playlist, .section-filter, .section-quote{
+    padding: 0;
+    transform: translateY(20px);
+    animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
+}
+.section-filter, .section-playlist{
+    width: 100%;
+    height: 100%;
+    background-color: #c5ffef57;
+
+}
+.section-main {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    transform: translateY(20px);
+    animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
+}
+/*div 0*/
+.section-cerezo0{
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -20px;
+}
+.section-cerezo0::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imagenes/DIVS-DECOR\ \(7\).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+/*section estan invitados y countdown*/
+.section-countdown {
+    margin: 0;
+    padding: 0;
+    transform: translateY(20px);
+    animation: fadeIn var(--scroll-animation-duration) ease-in forwards;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.section-countdown h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 40px;
+    font-weight: 500;
+    font-style: italic;
+    padding: 10px;
+    margin: 0;
+}
+.section-countdown p {
+    margin: 0;
+    font-family: var(--font-text);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 20px;
+    padding: 7px;
+}
+.section-countdown h2 {
+    color: var(--color-3);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    font-family: var(--font-text);
+    font-size: 1.5em;
+    font-weight: 400;
+    padding: 5px;
+    margin: 0;
+}
+#contador{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 0;
+}
+.countdown-circle {
+    width: 75px;
+    height: 75px;
+    background-color:#ffffff91;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.countdown-circle span {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0;
+    font-family: var(--font-text);
+    font-style: italic;
+}
+.section-calendar {
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 180px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #ffffff91;
+    cursor: pointer;
+}
+.section-calendar a {
+    text-decoration: none;
+    font-family: var(--font-text);
+    color: var(--color-3);
+    font-size: 18px;
+    font-weight: 500;
+}
+.section-calendar:hover {
+    background-color: var(--color-3);
+}
+.section-calendar a:hover {
+    color: white;
+}
+/*section music*/
+.section-music{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.section-music h2{
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+}
+/*section div 1*/
+.section-cerezo1{
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.section-cerezo1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imagenes/mariposas-c.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+/*section blessed*/
+.section-b{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.section-b h1, .section-b h2, .section-b h3{
+    padding: 20px;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 40px;
+    margin-top: -30px;
+    margin-bottom: -10px;
+    color:var(--color-3);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    font-family: var(--font-title);
+}
+.section-b p{
+    font-weight: 500;
+    font-size: 20px;
+    padding: 10px;
+    font-style: italic;
+}
+/*section div 2*/
+.section-cerezo2{
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -130px;
+}
+.section-cerezo2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imagenes/mariposas-cb.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+/*div 3*/
+.section-cerezo3{
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -20px;
+}
+.section-cerezo3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imagenes/mariposas-vi.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+/*div 4*/
+.section-cerezo4{
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -20px;
+}
+.section-cerezo4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imagenes/mariposas-vd.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+/*div 5*/
+.section-cerezo5{
+    position: relative;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -20px;
+}
+.section-cerezo5::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imagenes/mariposas-li.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+/*section guest*/
+.section h1{
+    font-family: var(--font-text);
+    padding: 15px;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+/*titulos*/
+.section h2, .section-playlist h2, .section-gifts h2, .section h3, .section-filter h2{
+    font-family: var(--font-title);
+    padding: 10px;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+/*texto*/
+.section-playlist p, .section-no-kids p{
+    font-family: var(--font-text);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+}
+.section p, .section-gifts p, .section-filter p{
+    font-family: var(--font-text);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 20px;
+    margin: 0;
+}
+.section span{
+    font-family: var(--font-text);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+}
+/*imagenes*/
+.section-main img {
+    width: 100%;
+    height: auto;
+}
+.section-main h2 {
+    top: 18%;
+    font-size: 50px;
+}
+/*iconos*/
+.icon {
+    padding: 0;
+    margin: 0;
+}
+.icon img {
+    width: 50%;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+/*galeria*/
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+}
+.galeria img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.galeria img:hover {
+    transform: scale(1.1);
+}
+.photo-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+.photo-modal img {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*botones*/
+button {
+    background-color: var(--color-3);
+    color: #fff;
+    border-radius: 5px;
+    font-family: var(--font-text);
+    padding: 10px;
+    transition: background-color 0.3s;
+    border: none;
+    font-size: 1em;
+    text-transform: none;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 1.2em;
+}
+button:hover {
+    background-color: #36816d;
+    color: white;
+}
+/*frase final*/
+.section-quote h1 {
+    font-family: var(--font-title);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 30px;
+    padding: 15px;
+    margin: 0;
+}
+/* Estilo para la sección de solo adultos en quinceañera */
+.section-no-kids {
+    text-align: center;
+  }
+  
+  .section-no-kids h2 {
+    font-size: 2.5rem;
+    font-family: var(--font-title); /* Usa la fuente más elegante */
+    margin-bottom: 20px;
+  }
+  
+  
+/*footer*/
+footer {
+    padding: 20px;
+    background: var(--color-1);
+    color: white;
+    font-size: var(--footer-font-size);
+    width: 100%;
+    box-sizing: border-box;
+}
+.section-social-icons {
+    padding: 20px;
+}
+.section-social-icons a {
+    color: white;
+    margin: 0 10px;
+    text-decoration:none;
+}
+.section-social-icons i{
+    font-size: 35px;
+}
+.section-logo img{
+    margin-top: 0px;
+}
+/* Media Queries */
+@media (min-width: 768px) and (max-width: 1020px) {
+    /* iPad Styles */
+    .seal{
+        width: 200px;
+        height: 200px;
+        }
+    .sealh h2{
+            font-size: 60px;
+        }
+    .section-music{
+        margin-top: -90px;
+        height: 500px;
+    }
+    .section-main h1, .section-main h2 {
+        font-size: 3em;
+    }
+
+    .section-countdown h1,
+    .section-countdown h2,
+    .section-b h1,
+    h1,
+    .section h2,
+    .section h3 {
+        font-size: 2.5em;
+    }
+
+    .section p,
+    .section-countdown p,
+    .section-calendar a {
+        font-size: 1.5em;
+    }
+}
+@media (min-width: 1025px) {
+    /* Laptop Styles */
+    .seal{
+    width: 200px;
+    height: 200px;
+    }
+    .sealh h2{
+        font-size: 60px;
+    }
+    .overlay-text{
+        height: 500px;
+        margin-bottom: -80px;
+    }
+    .overlay-text h1{
+        font-size: 120px;
+        margin-top: 10px;
+    }
+    .overlay-text h2{
+        font-size: 150px;
+        margin-top: 280px;
+    }
+    .section-music{
+        margin-top: -90px;
+        height: 500px;
+    }
+    .section-music h2{
+        font-size: 50px;
+    }
+    .section-countdown h1,
+    .section-countdown h2,
+    .section-b h1,
+    h1,
+    .section h2,
+    .section h3 {
+        font-size: 3em;
+    }
+    .section p,
+    .section-countdown p,
+    .section-calendar a, .section-b p{
+        font-size: 1.8em;
+    }
+    .countdown-circle{
+        height: 180px;
+        width: 180px;
+    }
+    .countdown-circle span{
+        font-size: 50px;
+    }
+    .section-quote{
+        padding: 10px;
+    }
+    .section-social-icons i{
+        font-size: 55px;
+        margin-top: 10px;
+    }
+    .section-logo img{
+        margin-top: 0px;
+    }
+}
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-in-out;
+}
+.fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Estilo para la sección de Buenos Deseos */
+.section-buenos-deseos {
+    padding: 40px 40px;
+    text-align: center;
+    border-radius: 15px;
+  }
+  
+  .section-buenos-deseos h2 {
+    font-size: 2.5rem;
+    font-family: var(--font-title);
+    margin-bottom: 20px;
+  }
+  
+  #wishForm input,
+  #wishForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  #wishForm button {
+    background-color: var(--color-1); /* Rosa brillante */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+  }
+  
+  #wishForm button:hover {
+    background-color: 3; /* Un tono más fuerte de rosa */
+  }
+  
+  #verDeseosBtn {
+    margin-top: 20px;
+    background-color: var(--color-4);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+  }
+  
+  #verDeseosBtn:hover {
+    background-color: var(--color-1);
+  }
+  
+  /* Estilo para los deseos */
+  .wish-card {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wish-card strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #36816d;
+  }
+  
+  .wish-card em {
+    font-size: 1rem;
+    color: #36816d;
+  }
+  
+  /* Efecto de brillitos mágicos */
+  #magicEffect .sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    animation: sparkle-animation 1s infinite;
+  }
+  
+  @keyframes sparkle-animation {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-10px) scale(1.5);
+    }
+    100% {
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+
+
+
