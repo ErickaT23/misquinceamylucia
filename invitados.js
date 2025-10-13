@@ -18,6 +18,9 @@ window.invitados = {
   '17': { nombre: 'Andrea Chávez', adultos: 1, ninos: 1 },
   '18': { nombre: 'Milagro Orellana', adultos: 2, ninos: 0 },
   '19': { nombre: 'Irma Muralles', adultos: 3, ninos: 0 },
-  '20': { nombre: 'Elisa Rivas y Nancy García', adultos: 2, ninos: 1 }
+  '20': { nombre: 'Elisa Rivas y Nancy García', adultos: 2, ninos: 1 },
+  '21': { nombre: 'Rolando Carrera & Esposa', adultos: 2, ninos: 0 },
+  '22': { nombre: 'Sara Turcios & Jorge Mario Paíz', adultos: 2, ninos: 0 },
+  '23': { nombre: 'Delma Najarro', adultos: 3, ninos: 0 }
 };
 
