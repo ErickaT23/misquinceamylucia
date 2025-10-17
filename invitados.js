@@ -21,6 +21,10 @@ window.invitados = {
   '20': { nombre: 'Elisa Rivas y Nancy García', adultos: 2, ninos: 1 },
   '21': { nombre: 'Rolando Carrera & Esposa', adultos: 2, ninos: 0 },
   '22': { nombre: 'Sara Turcios & Jorge Mario Paíz', adultos: 2, ninos: 0 },
-  '23': { nombre: 'Delma Najarro', adultos: 3, ninos: 0 }
+  '23': { nombre: 'Delma Najarro', adultos: 3, ninos: 0 },
+  '24': { nombre: 'German Wilfredo de la Rosa', adultos: 2, ninos: 0 },
+  '25': { nombre: 'Axel Aaron Muralles', adultos: 2, ninos: 0 },
+  '26': { nombre: 'Lucy Ramirez', adultos: 1, ninos: 0 },
+  '27': { nombre: 'Mario Rodriguez', adultos: 1, ninos: 0 }
 };
 
